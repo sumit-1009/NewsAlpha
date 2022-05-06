@@ -1,35 +1,36 @@
 import './App.css';
-
-import React, { useState } from 'react'
 import NavBar from './components/NavBar';
-import News from './components/News';
+
+
+import React from 'react'
+// import News from './components/News';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-// import LoadingBar from 'react-top-loading-bar'
-
+import { Home } from './pages/Home';
+import { Sports } from './pages/Sports';
 
 const App = ()=> {
-  const pageSize = 9;
+  // const pageSize = 9;
   
     return (
-      <div>
-        <Router>
+      <Router>
         <NavBar />
         <Switch>
-          <Route exact path="/"><News key="general" pageSize={pageSize} country="in" category="general" /></Route>
-          <Route exact path="/business"><News  key="business" pageSize={pageSize} country="in" category="business" /></Route>
-          <Route exact path="/entertainment"><News key="entertainment" pageSize={pageSize} country="in" category="entertainment" /></Route>
-          <Route exact path="/general"><News key="general" pageSize={pageSize} country="in" category="general" /></Route>
-          <Route exact path="/health"><News key="health" pageSize={pageSize} country="in" category="health" /></Route>
-          <Route exact path="/science"><News key="science" pageSize={pageSize} country="in" category="science" /></Route>
-          <Route exact path="/sports"><News key="sports" pageSize={pageSize} country="in" category="sports" /></Route>
-          <Route exact path="/technology"><News key="technology" pageSize={pageSize} country="in" category="technology" /></Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          {/* <Route path="/business"><News pageSize={pageSize} country="in" category="business" /></Route>
+          <Route path="/entertainment"><News pageSize={pageSize} country="in" category="entertainment" /></Route>
+          <Route path="/general"><News pageSize={pageSize} country="in" category="general" /></Route>
+          <Route path="/health"><News pageSize={pageSize} country="in" category="health" /></Route>
+          <Route path="/science"><News pageSize={pageSize} country="in" category="science" /></Route>
+          <Route path="/technology"><News pageSize={pageSize} country="in" category="technology" /></Route> */}
+          <Route path="/sports"><Sports /></Route>
         </Switch>
-        </Router>
-      </div>
+      </Router>
     )
   
 }
