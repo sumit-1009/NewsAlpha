@@ -46,7 +46,6 @@ const News = (props)=> {
                     dataLength={articles.length}
                     next={fetchMoreData}
                     hasMore={articles.length !== totalResults}
-                    // loader= {<Spinner />}
                 >
                     <div className="container">
                     <div className="row">

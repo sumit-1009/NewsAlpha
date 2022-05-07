@@ -1,22 +1,16 @@
 import './App.css';
-
-import React, { useState } from 'react'
+import React from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
 import {
-  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-// import LoadingBar from 'react-top-loading-bar'
-
 
 const App = ()=> {
   const pageSize = 9;
-  
     return (
       <div>
-        <Router>
         <NavBar />
         <Switch>
           <Route exact path="/"><News key="general" pageSize={pageSize} country="in" category="general" /></Route>
@@ -28,7 +22,6 @@ const App = ()=> {
           <Route exact path="/sports"><News key="sports" pageSize={pageSize} country="in" category="sports" /></Route>
           <Route exact path="/technology"><News key="technology" pageSize={pageSize} country="in" category="technology" /></Route>
         </Switch>
-        </Router>
       </div>
     )
   
