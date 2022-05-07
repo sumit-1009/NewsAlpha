@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'NewsAlpha'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D16F67B3139747E28F18268968BB2621 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0CD9812A44B84D48B4C2CC30E41D3B88 }}
           package: .
