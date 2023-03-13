@@ -14,6 +14,7 @@ const NewsItem = (props)=> {
                     </span>
                     </div>
                     <img src={!imageUrl?"https://images.hindustantimes.com/tech/img/2022/04/15/1600x900/Windows_11_(7)_1633403699297_1650017692498.jpg":imageUrl} className="card-img-top" alt="..."/>
+                    {/* <img src={imageUrl} className="card-img-top" alt="..."/> */}
                         <div className="card-body">
                             <h5 className="card-title">{title}
                             <span className="visually-hidden">unread messages</span>

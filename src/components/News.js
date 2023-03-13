@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
@@ -15,7 +16,7 @@ const News = (props)=> {
     }
 
     const updateNews = async ()=> {
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=68bbb6a17b2f42c092d50b1d5e4f8029&page=${page}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=64ffe441ae0249dcaf5bf48d536a480d&page=${page}&pageSize=${props.pageSize}`;
         setLoading(true);
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -30,17 +31,19 @@ const News = (props)=> {
 
 
     const fetchMoreData = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=68bbb6a17b2f42c092d50b1d5e4f8029&page=${page+1}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apikey=64ffe441ae0249dcaf5bf48d536a480d&page=${page+1}&pageSize=${props.pageSize}`;
         setPage(page+1);
         let data = await fetch(url);
+        console.log(data);
         let parsedData = await data.json();
+        console.log(parsedData);
         setArticles(articles.concat(parsedData.articles));
         setTotalResults(parsedData.totalResults);
         setLoading(false);
       };
         return (
             <>
-                <h1 className="text-center" style={{ margin: '35px 0px;', marginTop: '80px' }}>NewsAlpha - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+                <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '80px' }}>NewsAlpha - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
                 {loading && <Spinner />}
                 <InfiniteScroll
                     dataLength={articles.length}
@@ -64,7 +67,7 @@ const News = (props)=> {
 }
 
 News.defaultProps = {
-    country: 'in',
+    country: 'all countries',
     pageSize: 8,
     category: 'general',
 }
