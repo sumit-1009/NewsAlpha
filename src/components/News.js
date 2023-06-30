@@ -31,7 +31,7 @@ const News = (props)=> {
 
 
     const fetchMoreData = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apikey=64ffe441ae0249dcaf5bf48d536a480d&page=${page+1}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=rs&category=${props.category}&apikey=64ffe441ae0249dcaf5bf48d536a480d&page=${page+1}&pageSize=${props.pageSize}`;
         setPage(page+1);
         let data = await fetch(url);
         console.log(data);
@@ -43,7 +43,7 @@ const News = (props)=> {
       };
         return (
             <>
-                <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '80px' }}>NewsAlpha - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+                <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '80px' }}>NewsCaster - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
                 {loading && <Spinner />}
                 <InfiniteScroll
                     dataLength={articles.length}
@@ -54,7 +54,7 @@ const News = (props)=> {
                     <div className="row">
                         {articles.map((element) => {
                             return <div className="col-md-4" key={element.url}>
-                                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description.slice(0,40) : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                             </div>
                         })}
                     </div>
